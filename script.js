@@ -9,6 +9,7 @@ const products = [
 // Function to render products
 function renderProducts() {
     const productList = document.getElementById('product-list');
+    
     products.forEach(product => {
         const li = document.createElement('li');
         li.innerHTML = `${product.name} - $${product.price} 
@@ -48,7 +49,7 @@ function addToCart(productId) {
     const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
     
     if (existingItemIndex >= 0) {
-        // If it exists, don't add again or handle quantity if necessary
+        // If it exists, increase quantity or handle accordingly
         return;
     }
 
