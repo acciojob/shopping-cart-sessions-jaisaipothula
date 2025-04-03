@@ -23,7 +23,7 @@ function renderProducts() {
 // Load cart from sessionStorage and display it
 function loadCart() {
   const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-  
+
   const cartList = document.getElementById("cart-list");
   cartList.innerHTML = ""; // Clear existing items
 
@@ -39,7 +39,7 @@ function addToCart(productId) {
   const product = products.find((p) => p.id === productId);
 
   let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-  
+
   cart.push(product);
 
   sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -50,7 +50,7 @@ function addToCart(productId) {
 // Clear the shopping cart
 function clearCart() {
   sessionStorage.removeItem("cart");
-  
+
   loadCart();
 }
 
