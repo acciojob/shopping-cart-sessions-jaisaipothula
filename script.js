@@ -6,10 +6,10 @@ const products = [
   { id: 5, name: "Product 5", price: 50 },
 ];
 
-// Render the list of products
+// Render products on page load
 function renderProducts() {
   const productList = document.getElementById("product-list");
-
+  
   products.forEach(product => {
     const li = document.createElement("li");
     li.innerHTML = `
@@ -20,13 +20,13 @@ function renderProducts() {
   });
 }
 
-// Load the shopping cart from sessionStorage
+// Load cart from sessionStorage and display it
 function loadCart() {
   const cart = JSON.parse(sessionStorage.getItem("shopping-cart")) || [];
   
   const cartList = document.getElementById("cart-list");
   cartList.innerHTML = ""; // Clear existing items
-
+  
   cart.forEach(item => {
     const li = document.createElement("li");
     li.textContent = `${item.name} - $${item.price}`;
@@ -54,9 +54,9 @@ function clearCart() {
   loadCart();
 }
 
-// Event listener for the Clear Cart button
+// Event listener for Clear Cart button
 document.getElementById("clear-cart-btn").addEventListener("click", clearCart);
 
-// Initialize the page by rendering products and loading the cart
+// Initialize page by rendering products and loading cart data
 renderProducts();
 loadCart();
